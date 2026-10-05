@@ -1,0 +1,38 @@
+# Publishes a GitHub release for a version tag (v1.2.3).
+# Runs as github-actions, so the release isn't credited to a personal account.
+# Release notes come from .github/releases/<tag>.md when that file exists.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to publish, e.g. v0.2.0"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out the pushed tag, or the branch the workflow was run from (which holds the notes file).
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: python3 -m unittest discover -s tests
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          NOTES=".github/releases/${TAG}.md"
+          if [ -f "$NOTES" ]; then
+            TITLE="$(head -n 1 "$NOTES" | sed 's/^# *//')"
+            tail -n +2 "$NOTES" > /tmp/notes.md
+            gh release create "$TAG" --title "$TITLE" --notes-file /tmp/notes.md --verify-tag
+          else
+            gh release create "$TAG" --title "$TAG" --generate-notes --verify-tag
+          fi
