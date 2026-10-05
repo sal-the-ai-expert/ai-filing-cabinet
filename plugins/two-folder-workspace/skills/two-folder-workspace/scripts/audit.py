@@ -78,7 +78,7 @@ def audit(root: Path, stale_days: int | None = None) -> list[Finding]:
                 "ROOT_EXTRA",
                 item,
                 "Not allowed at the top of the workspace.",
-                "Move it into projects/<project>/<type>/, memory/, or general/, then delete the empty original.",
+                "Move it into projects/<project>/<type>/, memory/ or general/. Leave any empty folder for the user to remove.",
             )
 
     projects_dir = root / "projects"
