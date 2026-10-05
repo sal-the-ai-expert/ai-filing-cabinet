@@ -1,0 +1,16 @@
+{
+  "name": "ai-filing-cabinet",
+  "version": "0.2.0",
+  "description": "A two-folder workspace for business owners: finished files for people, plain notes for the AI. Asks which folder to use first, saves every file there, tidies with a plan you approve (cleanup never deletes), plus a read-only audit and an optional guard.",
+  "author": {
+    "name": "Salman H Chaudhry"
+  },
+  "license": "MIT",
+  "keywords": [
+    "memory",
+    "workspace",
+    "organization",
+    "small-business",
+    "skill"
+  ]
+}

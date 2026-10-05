@@ -1,0 +1,14 @@
+{
+  "name": "ai-filing-cabinet",
+  "owner": {
+    "name": "Salman H Chaudhry"
+  },
+  "plugins": [
+    {
+      "name": "ai-filing-cabinet",
+      "source": "./plugins/two-folder-workspace",
+      "description": "The two-folder workspace: asks which folder to use, saves every AI-made file in the right project folder, tidies with a plan you approve, and never deletes anything."
+    }
+  ],
+  "description": "Two folders: finished files for you, plain notes for your AI. Asks where to save, files everything there, never deletes."
+}

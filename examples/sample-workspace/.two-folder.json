@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "root_allow": [
+    "CLAUDE.md",
+    "memory",
+    "projects",
+    "general",
+    "_review",
+    ".two-folder.json"
+  ],
+  "enforce": [
+    "root",
+    "loose",
+    "dateprefix",
+    "memory-split",
+    "no-delete"
+  ],
+  "undated_ok": [],
+  "extra_type_folders": [],
+  "stale_days": 60
+}

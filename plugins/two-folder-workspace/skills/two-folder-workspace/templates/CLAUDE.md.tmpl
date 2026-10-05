@@ -1,0 +1,37 @@
+# Workspace rules
+
+Last updated: {{date}}
+
+This is the one folder where all AI work is kept. It has two halves. Keep them apart.
+
+- `projects/` is for the person: finished Word, Excel, PowerPoint, PDF and image files. Two clicks to anything.
+- `memory/` is for the AI: short plain-text markdown notes it reads at the start of a task.
+
+## Root is locked
+The top level holds exactly: `CLAUDE.md`, `memory/`, `projects/`, `general/`, `_review/` and the `.two-folder.json` settings file. Nothing else, ever. Never move `.two-folder.json`.
+
+## Every file you make is saved here, straight away
+- Save each file into this folder in the same turn you make it, then say the exact path.
+- Never leave a file only in a chat download, a sandbox (`outputs/`, `/tmp`, a cloud session's scratch space) or a memory folder outside this one. A preview in chat is not a save.
+- If you can't reach this folder, say so before making the file. If the person wants it anyway, label it "not saved yet" and list what still needs saving. Never claim a file is saved when it isn't.
+
+## Before you create or save anything
+1. Read `memory/_index.md`, then `memory/reference/projects.md` (the registry).
+2. Find the project's slug. If there is no match, STOP and ask which project it belongs to. Never invent a folder.
+3. Save finished files to `projects/<slug>/<type>/YYYYMMDD-name.ext`.
+   Types: documents, spreadsheets, presentations, pdfs, designs, code, exports.
+4. Never put loose files in a project folder or in `projects/` itself.
+5. Never put a finished human file (.docx, .xlsx, .pptx, .pdf, images) inside `memory/`.
+
+## Never delete, never overwrite the person's files
+Do not delete or empty anything here, by any method. To get rid of something, move it to `_review/quarantine/` (keep its path, and check nothing is already there) and add a line to `_review/DELETE-QUEUE.md` saying what it is and why it could go. The person decides and deletes.
+To change a finished file, save a new dated version (`-v2`) beside it. Your own memory notes (`context.md`, `_index.md`) are the only files you rewrite in place.
+
+## Memory rules
+- `memory/<category>/<slug>/context.md` holds what is true NOW. Read it, then overwrite it when things change.
+- `log.md` next to it is the history. Only append, and only when something changed.
+- Save memory after each substantial task, not only at the end.
+- Read one project's context.md, not all of them.
+
+## Names
+Folders: lowercase-kebab-case, no spaces or capitals. Files: start with the date, YYYYMMDD-.
